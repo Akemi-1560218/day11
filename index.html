@@ -1,0 +1,252 @@
+//演習
+//1 for ループを使って、以下のコードを書き換えてください。
+let index = 0;
+
+while (index <= 4) {
+  console.log("hello!");
+  index++;
+}
+
+//2 次のコードには間違いがあり、このままでは意図した動作をしません。正しく動作するように直してください。
+const array = ["a", "b", "c", "d", "e"];
+for (let i = 0; i < array.length-1; i++) {
+  console.log("Index: " + i, "Value :" + i);
+}
+
+// Index: 0 Value: a
+// Index: 1 Value: b
+// Index: 2 Value: c
+// Index: 3 Value: d
+// Index: 4 Value: e
+
+//3 for ループを使って、"Hello!" を 4 回コンソールに表示する関数 sayFourHellos を宣言してください。
+テストケース:
+sayFourHellos();
+
+// "Hello!"
+// "Hello!"
+// "Hello!"
+// "Hello!"
+
+//4 start の数値を引数にとり、start から 0 までの数値をコンソールにカウントダウンさせて表示する関数 countDown を宣言してください。for ループを使ってください。
+
+function test(actual, expected) {
+  if (JSON.stringify(actual) === JSON.stringify(expected)) {
+    console.log("OK! Test PASSED.");
+  } else {
+    console.error("Test FAILED. Try again!");
+    console.log("    actual: ", actual);
+    console.log("  expected: ", expected);
+    console.trace();
+  }
+}
+//基礎
+//1引数に数値 n をとり、for ループを使って "Hello!" を n 回コンソールに表示させる関数 sayHellos を宣言してください。
+テストケース:
+  sayHellos(4);
+
+// "Hello!"
+// "Hello!"
+// "Hello!"
+// "Hello!"
+
+//2 1 から 10 までの数値を毎行 1 だけ増えていくようにコンソールに表示させる関数 countToTen を宣言してください。
+アドバイス :　for ループの中で、添え字（index）を console.log しましょう。
+テストケース:
+countToTen();
+
+// 1
+// 2
+// 3
+// 4
+// 5
+// 6
+// 7
+// 8
+// 9
+// 10
+
+//3 下にある関数 counter 内の while ループを for ループに書き直してください。書き直しても結果が変わらないようにしましょう。
+function counter(num) {
+  let i = 0;
+  while (i < num) {
+    console.log(i);
+    i++;
+  }
+}
+
+//4 関数 printArray を宣言してください。
+//配列を 1 つ引数にとり、そのすべての要素を 1 つずつコンソールに表示させてください。テストの際には、配列に少なくとも 5 つの要素を入れて、関数がうまく動くか確認しましょう。
+
+//5 配列の代わりに文字列を引数に設定して printArray を呼び出すと、どのように表示されるでしょうか？
+//6 関数 addOne を宣言してください。
+
+/**
+ * @param {Array<number>} ???
+ * @returns {Array<number>} 与えられた配列の各要素に 1 を加えた数値を要素として持つ新しい配列
+ */
+// ここにコードを書きましょう
+
+const array1 = [1, 2, 3, 4];
+
+// function が動作するかテストする
+test(addOne(array1), [2, 3, 4, 5]);
+
+// 元の配列が変更されていないことを確認する
+test(array1, [1, 2, 3, 4]);
+
+//中級
+//1 プログラミングでは 2 つの数値の間の数値をレンジ (range)　と言います。例えば整数１ から ５ までの reange であれば 1, 2, 3, 4, 5 を指します。
+//これを踏まえて range を作る関数 createRange を宣言してください。
+/**
+ * @param {number} start
+ * @param {number} end
+ * @returns {Array<number>} start 以上 end 以下のすべての整数を含む配列
+ */
+// ここにコードを書きましょう
+
+test(createRange(4, 6), [4, 5, 6]);
+test(createRange(10, 16), [10, 11, 12, 13, 14, 15, 16]);
+
+//2 下にある関数 printCars 内の while ループを for ループに書き換えてください。書き直しても結果が変わらないようにしましょう。
+function printCars() {
+  const cars = ["Toyota", "Mazda", "Mercedes", "BMW", "Hyundai", "Volvo"];
+  let i = 0;
+
+  while (i < cars.length) {
+    console.log(cars[i]);
+    i++;
+  }
+}
+
+//3 以下の for ループを while ループに書き換えてください。なぜインデックスの初期値は list.length - 1 なのでしょうか。
+//分からない場合は、「配列の最後のインデックス」と「配列の長さ」の違いについて考えてみましょう。
+アドバイス：　テストケースで文字列が表示される順序に注目してください。コンソール上でこれと同じ順序で表示されるようにしてください。
+
+const numbers = ["No. 3", "No. 2", "No. 1"];
+
+function printFromBack(list) {
+  for (let i = list.length - 1; i >= 0; i--) {
+    console.log(list[i]);
+  }
+}
+
+printFromBack(numbers);
+
+// "No. 1"
+// "No. 2"
+// "no. 3"
+
+//4 関数 createRangeBySteps を宣言してください。
+/**
+ * @param {number} start
+ * @param {number} end
+ * @param {number} step
+ * @returns {Array<number>} start 以上 end 以下の整数を、 step の刻みで入れた新しい配列。
+ */
+// ここにコードを書きましょう
+
+test(createRangeBySteps(1, 10, 2), [1, 3, 5, 7, 9]);
+test(createRangeBySteps(10, 30, 5), [10, 15, 20, 25, 30]);
+
+//5 二つの配列の要素を足して新しい配列を作る関数 addTogether を宣言してください。
+//引数には 同じ長さの 数値の配列を 2 つとります。テストを見て、どんな働きが求められているかよく理解しましょう。
+/**
+ * @param {Array<number>} ???
+ * @param {Array<number>} ???
+ * @returns {Array<number>} それぞれの配列の対応する要素の和からなる配列
+ */
+// ここにコードを書きましょう
+
+test(addTogether([1, 2, 3], [4, 5, 6]), [5, 7, 9]);
+test(addTogether([1, 2, 3], [7, 8, 9]), [8, 10, 12]);
+
+//6 関数 addTogether の引数の配列が異なる長さであっても動くよう、関数を修正してください。
+test(addTogether([1], [4, 5, 6]), [5, 5, 6]);
+
+//応用
+//1 while ループのこのような使い方を試してみましょう。
+ユーザーにパスワードを入力してもらい、入力された値と事前に用意されたパスワードが等しくない限り、再度パスワードを入力してもらうというコードを書きます。
+ユーザーに入力してもらうには prompt() という関数を使います。prompt はブラウザ上で使えるビルトイン関数でブラウザ上でなければ使えません。
+ですので、この演習は Google Chrome のコンソールで行いましょう。試しに以下のコードをコンソールで実行してみてください。
+let number = prompt("数値を入力してください")
+console.log(number)
+console.log(typeof number)
+
+//2 関数 unique を宣言してください。引数として配列を 1 つとり、重複していない値のみが入った新しい配列を返してください。
+/**
+ * @param {Array<any>} ???
+ * @returns {Array<any>} 重複していない値のみが入った新しい配列
+ */
+// ここにコードを書きましょう
+
+test(unique([1, 1, 1, 1, 1]), []);
+test(unique([1, 3, 4, 5, 2, 4]), [1, 3, 5, 2]);
+
+//3 関数 mySum を宣言してください。
+アドバイス：　不特定の数の引数を扱うには スプレッド構文 (spread syntax) について調べる必要があります。
+/**
+ * @param {...number}
+ * @returns {number} 引数の合計値
+ */
+// ここにコードを書きましょう
+
+test(mySum(1), 1);
+test(mySum(1, 1, 1, 1, 1), 5);
+test(mySum(1, 2, 3, 4, 5), 15);  
+
+//4 関数 zip を宣言してください。不特定の数の配列を引数として取り、各配列の値が全部入った新しい配列を返してください。
+/**
+ * @param {...<Array<any>} ???
+ * @returns {Array<any>} 与えられた配列内のすべての値を持つ新しい配列
+ */
+// ここにコードを書きましょう
+
+test(zip([1], [2], [3], [4]), [1, 2, 3, 4]);
+test(zip([1, 2, 3], [4, 5], [1], [4]), [1, 2, 3, 4, 5, 1, 4]);
+
+//ナイトメア
+//1 パーティに n 人のゲストが来ています。各ゲストには番号が割り当てられます。各ゲストにすでに到着しているゲストを紹介する関数 getIntroductions を宣言してください。
+/**
+ * @param {number} - ゲストの数
+ * @returns {Array<string>} 到着するゲストへの挨拶文が入った配列
+ */
+// ここにコードを書きましょう
+
+test(getIntroductions(1), ["1 さん、ようこそ。"]);
+test(getIntroductions(2), ["1 さん、ようこそ。", "2 さん、ようこそ。1 さんです"]);
+test(getIntroductions(5), [
+  "1 さん、ようこそ。",
+  "2 さん、ようこそ。1 さんです",
+  "3 さん、ようこそ。1 さん、2 さんです",
+  "4 さん、ようこそ。1 さん、2 さん、3 さんです",
+  "5 さん、ようこそ。1 さん、2 さん、3 さん、4 さんです",
+]);
+
+//2 関数 christmasTree を宣言してください。
+/**
+ * @param {string} ??? - 任意の 1 文字
+ * @param {number} ??? - ツリーの高さ
+ * @returns {string} 与えられた文字と高さを使用して、クリスマスツリーを文字列で作る。
+ */
+
+// ここにコードを書きましょう
+
+const expected1 = "T";
+test(christmasTree("T", 1), expected1);
+const expected2 = " +\n+ +";
+test(christmasTree("+", 2), expected2);
+const expected4 = "   #\n  # #\n # # #\n# # # #";
+test(christmasTree("#", 4), expected4);
+
+// \n は改行を意味するコードです。実際に文字列を console.log すると、ツリーがこんな風に表示されますよ。
+
+/*
+      T
+     T T
+    T T T
+   T T T T
+  T T T T T
+*/
+
+
