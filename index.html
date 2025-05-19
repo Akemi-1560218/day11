@@ -1,3 +1,73 @@
+for in ループ　ウォーミングアップ
+function test(actual, expected) {
+  if (JSON.stringify(actual) === JSON.stringify(expected)) {
+    console.log("OK! Test PASSED.");
+  } else {
+    console.error("Test FAILED. Try again!");
+    console.group("Result:");
+    console.log("  actual:", actual);
+    console.log("expected:", expected);
+    console.trace();
+    console.groupEnd();
+  }
+}
+以下の問題ではこれらの変数を使用します。
+const obj1 = { a: "A" };
+const obj2 = { a: "A", b: 2 };
+const obj3 = { a: "A", b: 2, c: "C", d: true };
+const obj4 = { a: "A", c: "C" };
+
+1 関数 filterObjectForStrings を宣言してください。
+/**
+ * @param {object} オブジェクト
+ * @returns {{ [key: string]: string }} 与えられたオブジェクト内の、値が文字列であるキーと値のペアのみを持つ新しいオブジェクト
+ */
+
+function filterObjectForStrings(object) {
+  // ここにコードを書きましょう。
+}
+
+test(filterObjectForStrings(obj1), obj1); // 変化なし
+test(filterObjectForStrings(obj2), obj1); // 値が文字列でないペアは取り除かれている
+test(filterObjectForStrings(obj3), obj4); // 値が文字列でないペアは取り除かれている
+
+2 関数 filterArrayForStrings を宣言してください。1 問目で作った関数 filterObjectForStrings を使いましょう。
+/**
+ * @param {Array<object>} arrayOfObjects - オブジェクトを要素に持つ配列
+ * @returns {Array<{ [key: string]: string }>} 与えられた配列内の各オブジェクトから、値が文字列であるキーと値のペア以外のペアを取り除いた新しいオブジェクトを作成して新しい配列に入れたもの。
+ */
+
+function filterArrayForStrings(arrayOfObjects) {
+  // ここにコードを書きましょう.
+  // この中のどこかで関数 `filterObjectForStrings` を呼びましょう。
+}
+
+test(filterArrayForStrings([obj1]), [obj1]); // 変化なし
+test(filterArrayForStrings([obj1, obj2]), [obj1, obj1]); // 2 つめの要素の `b: 2` が取り除かれる。
+test(filterArrayForStrings([obj3, obj2, obj1]), [obj4, obj1, obj1]);
+
+
+拡張
+for of loop と for in loop　の復習として以下の課題に取り組んでみましょう！
+以下の問題ではこの変数を使用します。
+const menuOfFruits = [
+  { name: "apple", price: "1,200yen", stock: "40" },
+  { name: "banana", price: "100yen", stock: "30" },
+  { name: "cherry", price: "670yen", stock: "20" },
+  { name: "kiwi", price: "210yen", stock: "10" },
+  {
+    name: "watermelon",
+    price: "4,560yen",
+    stock: "0",
+    secret: "Happy coding!",
+  },
+];
+全ての key に対する value をコンソールに出力しましょう
+key 名が "stock" の value を全てコンソールに出力しましょう
+key 名が "secret" のオブジェクトだけをコンソールに出力しましょう
+
+
+
 //演習
 //1 for ループを使って、以下のコードを書き換えてください。
 let index = 0;
